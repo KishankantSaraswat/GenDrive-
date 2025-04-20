@@ -343,7 +343,20 @@ const Dashboard = ({ preferences = {} }) => {
         carModel: 'Model S Plaid+'
       });
     }, 800);
-    return () => clearTimeout(timer);
+
+    // Animate speed and RPM
+    const speedInterval = setInterval(() => {
+      setMockData(prev => ({
+        ...prev,
+        speed: prev.speed < 75 ? prev.speed + 1 : 75,
+        rpm: prev.rpm < 3000 ? prev.rpm + 40 : 3000
+      }));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(speedInterval);
+    };
   }, []);
 
   const mainColor = prefs.accentColor;

@@ -1,0 +1,26 @@
+{
+  "name": "gendrive-plus",
+  "version": "1.0.0",
+  "description": "AI-powered UI/UX Personalization Engine for Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "client": "cd frontend && npm start",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "postinstall": "mkdir -p frontend/public && touch frontend/public/port.txt"
+  },
+  "keywords": [
+    "AI",
+    "UI/UX",
+    "Personalization",
+    "React",
+    "Node.js",
+    "MongoDB"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
